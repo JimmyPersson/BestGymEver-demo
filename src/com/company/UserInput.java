@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class UserInput {
@@ -24,19 +26,17 @@ public class UserInput {
 
                     }
                 }
-    private void CheckInputWithFile(){
+
+                private ArrayList GenerateArray(){
+
+        ArrayList memberList = new ArrayList<String>();
 
         try {
             BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\jimmy\\IdeaProjects\\BestGymEver\\src\\com\\company\\customers.txt"));
             String line;
             while ((line = br.readLine()) != null){
-                if (line.contains(input)){
-                    JOptionPane.showMessageDialog(null, "Välkommen!");}
-
-                    else
-                        JOptionPane.showMessageDialog(null, "Get fokt!");
-
-                }
+                memberList.add(line);
+                                  }
 
 
         } catch (FileNotFoundException e) {
@@ -44,6 +44,14 @@ public class UserInput {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Något blev fel.");
         }
+        return memberList;
+    }
+
+
+    private void CompareList(){
+
+
+
     }
 }
 
