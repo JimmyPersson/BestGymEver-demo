@@ -31,7 +31,6 @@ public class GymMethods {
     }
 
     public ArrayList<Person> generateArray() {
-
         String name, social, date;
         ArrayList<Person> memberList = new ArrayList<>();
         String line;
@@ -45,7 +44,7 @@ public class GymMethods {
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Kan inte hitta någon medlemslista att läsa ifrån.");
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Något blev fel.");
+            JOptionPane.showMessageDialog(null, "Läsningen av filen stötte på problem.");
         }
         return memberList;
     }
@@ -85,7 +84,7 @@ public class GymMethods {
             fileWriter.write("Incheckningslista.\n" + "Namn: " + person.getName() + ", " + person.getSocial() + "\n" + LocalDate.now());
 
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Skrivning till fil stötte på ett problem.");
         }
     }
 
@@ -94,7 +93,7 @@ public class GymMethods {
         try (FileWriter fileWriter = new FileWriter(writePath + "\\" + person.getName() + ".txt",true)) {
             fileWriter.write("\n" + LocalDate.now());
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Skrivning till fil stötte på ett problem.");
         }
     }
 
